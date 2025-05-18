@@ -10,7 +10,7 @@ function SignUp() {
     const saveUser = async (e) =>{
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/add-user',{
+            await axios.post('https://dhea-notes-be-103949415038.us-central1.run.app/add-user',{
                 username,
                 password,
               
