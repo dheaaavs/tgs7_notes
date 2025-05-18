@@ -11,7 +11,7 @@ function LoginUser() {
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', {
+      const response = await axios.post('https://dhea-notes-be-103949415038.us-central1.run.app/login', {
         username,
         password
       });
