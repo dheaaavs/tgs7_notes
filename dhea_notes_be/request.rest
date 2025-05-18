@@ -1,0 +1,45 @@
+GET http://localhost:5000/catatan
+
+###
+GET http://35.223.100.248:5000/catatan
+
+###
+POST http://35.223.100.248:3306/add-catatan
+Content-Type: application/json
+
+{
+    "penulis": "ayu",
+    "judul": "wawiwu",
+    "isi": "sri ayu eningsi"
+}
+
+###
+PUT http://localhost:5000/catatan/2
+Content-Type: application/json
+
+{
+    "penulis": "bjir",
+    "judul": "bjir@gmail.com",
+    "isi": "Male"
+}
+
+###
+DELETE http://localhost:5000/catatan/2
+
+###
+POST http://localhost:5000/add-user 
+Content-Type: application/json
+
+{
+    "username": "tes",
+    "password": "12345"
+}
+
+### login bang
+POST http://localhost:5000/login 
+Content-Type: application/json
+
+{
+    "username": "tes",
+    "password": "12345"
+}

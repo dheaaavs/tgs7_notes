@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes API</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #2c3e50;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th, td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      thead {
+        background-color: #3498db;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .description {
+        margin-top: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Selamat Datang di Praktikum TCC - Pertemuan 6 Kelas IF-E</h2>
+      <p class="description">Berikut adalah daftar endpoint API untuk fitur <strong>Catatan</strong>:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Metode</th>
+            <th>Endpoint</th>
+            <th>Deskripsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET</td>
+            <td>/catatan</td>
+            <td>Mengambil seluruh data catatan.</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/catatan/:id</td>
+            <td>Mengambil data catatan berdasarkan ID.</td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/add-catatan</td>
+            <td>Menambahkan data catatan baru.</td>
+          </tr>
+          <tr>
+            <td>PUT</td>
+            <td>/catatan/:id</td>
+            <td>Mengubah data catatan berdasarkan ID.</td>
+          </tr>
+          <tr>
+            <td>DELETE</td>
+            <td>/catatan/:id</td>
+            <td>Menghapus data catatan berdasarkan ID.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
