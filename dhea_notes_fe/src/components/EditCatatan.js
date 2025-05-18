@@ -16,7 +16,7 @@ const EditCatatan = () => {
   const updateCatatan = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://notes-be-dhea-103949415038.us-central1.run.app/catatan/${id}`, {
+      await axios.put(`https://dhea-notes-be-103949415038.us-central1.run.app/catatan/${id}`, {
         penulis,
         judul,
         isi,
