@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils";
 
 const AddCatatan = () => {
   const [penulis, setPenulis] = useState("");
@@ -11,7 +12,7 @@ const AddCatatan = () => {
   const saveCatatan = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://notes-be-dhea-103949415038.us-central1.run.app/add-catatan", {
+      await axios.post(`${BASE_URL}/add-catatan`, {
         penulis,
         judul,
         isi,

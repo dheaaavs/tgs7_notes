@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { BASE_URL } from "../utils";
 
 const EditCatatan = () => {
   const [penulis, setPenulis] = useState("");
@@ -16,7 +17,7 @@ const EditCatatan = () => {
   const updateCatatan = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://notes-be-dhea-103949415038.us-central1.run.app/catatan/${id}`, {
+      await axios.put(`${BASE_URL}/${id}`, {
         penulis,
         judul,
         isi,
@@ -28,7 +29,7 @@ const EditCatatan = () => {
   };
 
   const getCatatanById = async () => {
-    const response = await axios.get(`https://notes-be-dhea-103949415038.us-central1.run.app/catatan/${id}`);
+    const response = await axios.get(`${BASE_URL}/catatan/${id}`);
     setPenulis(response.data.penulis);
     setJudul(response.data.judul);
     setIsi(response.data.isi);

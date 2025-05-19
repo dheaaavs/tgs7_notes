@@ -1,72 +1,71 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react'
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils";
 
-function SignUp() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+const SignUp = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [confPassword, setConfPassword] = useState('');
+    const [msg, setMsg] = useState('');
     const navigate = useNavigate();
 
-    const saveUser = async (e) =>{
+    const SignUp = async (e) => {
         e.preventDefault();
+        if (password !== confPassword) {
+            setMsg("Password dan konfirmasi password tidak cocok");
+            return;
+        }
         try {
-            await axios.post('http://localhost:5000/add-user',{
-                username,
-                password,
-              
+            await axios.post(`${BASE_URL}/signup`, {
+                username:username,
+                password: password
             });
             navigate("/");
         } catch (error) {
-            console.log(error);
+            if (error.response) {
+                setMsg(error.response.data.msg);
+            }
         }
-    };
+    }
 
-  return (
-    <div className="columns mt-5 is-centered">
-    <div className="column is-half">
-      <div className="box p-5">
-        <h1 className="title has-text-centered has-text-primary"> User</h1>
-        <form onSubmit={saveUser}>
-          <div className="field">
-            <label className="label">username</label>
-            <div className="control">
-              <input 
-                type="text" 
-                className="input is-medium is-rounded" 
-                value={username} 
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Enter username" 
-                required
-              />
+    return (
+        <section className="hero has-background-grey-light is-fullheight is-fullwidth">
+            <div className="hero-body">
+                <div className="container">
+                    <div className="columns is-centered">
+                        <div className="column is-4-desktop">
+                            <form onSubmit={SignUp} className="box">
+                                <p className="has-text-centered">{msg}</p>
+                                <div className="field mt-5">
+                                    <label className="label">Username</label>
+                                    <div className="controls">
+                                        <input type="text" className="input" placeholder="Username"
+                                            value={username} onChange={(e) => setUsername(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className="field mt-5">
+                                    <label className="label">Password</label>
+                                    <div className="controls">
+                                        <input type="password" className="input" placeholder="******" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className="field mt-5">
+                                    <label className="label">Confirm Password</label>
+                                    <div className="controls">
+                                        <input type="password" className="input" placeholder="******" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className="field mt-5">
+                                    <button className="button is-success is-fullwidth">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-  
-          <div className="field">
-            <label className="label">password</label>
-            <div className="control">
-              <input 
-                type="text" 
-                className="input is-medium is-rounded" 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
-                placeholder="Enter Password" 
-                required
-              />
-            </div>
-          </div>
-  
-  
-          <div className="field has-text-centered">
-            <button type="submit" className="button is-success is-medium is-rounded px-5">
-              Save
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  
-  )
+        </section>
+    )
 }
 
 export default SignUp;

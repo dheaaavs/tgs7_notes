@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../utils";
 
 const CatatanList = () => {
   const [catatan, setCatatan] = useState([]);
@@ -10,13 +11,13 @@ const CatatanList = () => {
   }, []);
 
   const getcatatan = async () => {
-    const response = await axios.get("https://notes-be-dhea-103949415038.us-central1.run.app/catatan");
+    const response = await axios.get(`${BASE_URL}/catatan`);
     setCatatan(response.data);
   };
 
   const deleteCatatan = async (id) => {
     try {
-      await axios.delete(`https://notes-be-dhea-103949415038.us-central1.run.app/catatan/${id}`);
+      await axios.delete(`${BASE_URL}/catatan/${id}`);
       getcatatan();
     } catch (error) {
       console.log(error);
