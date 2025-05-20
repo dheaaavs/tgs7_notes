@@ -24,12 +24,20 @@ const CatatanList = () => {
     }
   };
 
+  const logout = () => {
+  localStorage.removeItem("token");
+  window.location.href = "/";
+};
+
   return (
     <div className="columns mt-5 is-centered">
       <div className="column is-half">
-        <Link to={"add"} className="button is-success mb-3">
+        <Link to="/add-catatan" className="button is-success mb-3">
           Add New
         </Link>
+        <button onClick={logout} className="button is-danger ml-2">
+          Logout
+        </button>
         <table className="table is-striped is-fullwidth">
           <thead>
             <tr>
@@ -50,7 +58,7 @@ const CatatanList = () => {
                 <td>
                   <div className="buttons">
                     <Link
-                      to={`edit/${catatan.id}`}
+                      to={`/edit/${catatan.id}`}
                       className="button is-small is-info"
                     >
                       Edit

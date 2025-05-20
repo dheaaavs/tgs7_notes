@@ -17,12 +17,12 @@ const EditCatatan = () => {
   const updateCatatan = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${BASE_URL}/${id}`, {
+      await axios.put(`${BASE_URL}/catatan/${id}`, {
         penulis,
         judul,
         isi,
       });
-      navigate("/");
+      navigate("/catatan");
     } catch (error) {
       console.log(error);
     }

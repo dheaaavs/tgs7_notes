@@ -48,6 +48,11 @@ const LoginUser = () => {
                                 <div className="field mt-5">
                                     <button className="button is-success is-fullwidth">Login</button>
                                 </div>
+                                <div className="field mt-5">
+                                    <button type="button" onClick={() => navigate('/signup')} className="button is-link is-fullwidth">
+                                        SignUp
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>

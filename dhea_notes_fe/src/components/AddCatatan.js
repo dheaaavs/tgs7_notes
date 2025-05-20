@@ -17,7 +17,7 @@ const AddCatatan = () => {
         judul,
         isi,
       });
-      navigate("/");
+      navigate("/catatan");
     } catch (error) {
       console.log(error);
     }
