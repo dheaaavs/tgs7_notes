@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { BASE_URL } from "../utils";
+import { API } from "../utils";
 
 const LoginUser = () => {
     const [username, setUsername] = useState('');
@@ -12,10 +12,7 @@ const LoginUser = () => {
     const Auth = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`${BASE_URL}/login`, {
-                username: username,
-                password: password
-            });
+          const response = await API.post("/login", { username, password });
                 navigate('/catatan'); // Pastikan menggunakan useNavigate()
               
         } catch (error) {
