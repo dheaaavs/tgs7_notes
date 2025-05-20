@@ -10,7 +10,7 @@ const SignUp = () => {
     const [msg, setMsg] = useState('');
     const navigate = useNavigate();
 
-    const SignUp = async (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault();
         if (password !== confPassword) {
             setMsg("Password dan konfirmasi password tidak cocok");
@@ -32,7 +32,7 @@ const SignUp = () => {
                 <div className="container">
                     <div className="columns is-centered">
                         <div className="column is-4-desktop">
-                            <form onSubmit={SignUp} className="box">
+                            <form onSubmit={handleSignUp} className="box">
                                 <p className="has-text-centered">{msg}</p>
                                 <div className="field mt-5">
                                     <label className="label">Username</label>
