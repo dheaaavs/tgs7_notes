@@ -4,7 +4,7 @@ import UserRoute from "./routes/UserRoute.js";
 import CatatanRoute from "./routes/CatatanRoute.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import sequelize from "./config/database.js"; // ✅ PAKAI INI
+import sequelize from "./config/Database.js"; // ✅ PAKAI INI
 
 dotenv.config();
 
