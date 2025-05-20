@@ -18,20 +18,15 @@ console.log("Allowed origins:", allowedOrigins);
 app.use(cookieParser());
 
 app.use(cors({
-  credentials: true,
-  origin: function (origin, callback) {
-    if (!origin) {
-      // untuk request tanpa origin (misal dari Postman atau curl)
-      return callback(null, true);
-    }
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      // origin valid, izinkan
+  origin: function(origin, callback) {
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      // origin tidak diizinkan
       callback(new Error('Not allowed by CORS'));
     }
-  }
+  },
+  credentials: true
 }));
 
 app.use(express.json());
