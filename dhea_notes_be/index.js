@@ -11,24 +11,11 @@ app.set("view engine", "ejs");
 dotenv.config();
 
 app.use(cookieParser());
-
-// ✅ Konfigurasi CORS lengkap
-const corsOptions = {
-  origin: "https://e-13-450704.uc.r.appspot.com",
-  credentials: true,
-  methods: "GET,POST,PUT,DELETE,OPTIONS",
-  allowedHeaders: "Content-Type,Authorization",
-};
-
-app.use(cors(corsOptions));
-
-// ✅ Penting! Tangani preflight OPTIONS request
-app.options("*", cors(corsOptions));
-
+app.use(cors({credentials:true, origin:'https://e-13-450704.uc.r.appspot.com'}));
 app.use(express.json());
 app.get("/", (req, res) => res.render("index"));
 app.use(UserRoute);
 app.use(CatatanRoute);
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server connected on port ${PORT}`));
