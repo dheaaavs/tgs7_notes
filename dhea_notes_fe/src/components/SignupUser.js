@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../utils";
+import { API } from "../utils";
 
 const SignUp = () => {
     const [username, setUsername] = useState('');
@@ -17,10 +17,7 @@ const SignUp = () => {
             return;
         }
         try {
-            await axios.post(`${BASE_URL}/add-user`, {
-                username:username,
-                password: password
-            });
+            const response = await API.post("/add-user", { username, password });
             navigate("/");
         } catch (error) {
             if (error.response) {
