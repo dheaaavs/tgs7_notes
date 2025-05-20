@@ -12,7 +12,7 @@ const app = express();
 app.set("view engine", "ejs");
 
 // Daftar origin yang diizinkan
-const allowedOrigins = ['https://e-13-450704.uc.r.appspot.com'];
+const allowedOrigins = ['https://dhea-notes-dot-e-13-450704.uc.r.appspot.com'];
 
 app.use(cookieParser());
 
